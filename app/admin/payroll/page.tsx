@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getPayroll, savePayroll } from '../../lib/storage';
-import { PayrollRecord } from '../../lib/types';
-import { formatCurrency } from '../../lib/utils';
-import Card from '../../components/Card';
+import { getPayroll, savePayroll } from '../../../lib/storage';
+import type{ PayrollRecord } from '../../../lib/types';
+import { formatCurrency } from '../../../lib/utils';
+import Card from '../../../components/Card';
 export default function AdminPayrollPage() {
   const [records, setRecords] = useState<PayrollRecord[]>([]);
   const [editing, setEditing] = useState<Record<string, Partial<PayrollRecord>>>({});

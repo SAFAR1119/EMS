@@ -1,15 +1,15 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getEmployees } from '../../lib/auth';
-import { getPerformance, savePerformance } from '../../lib/storage';
-import { PerformanceRecord, User } from '../../lib/types';
-import { formatDate } from '../../lib/utils';
-import Card from '../../components/Card';
-import StarRating from '../../components/StarRating';
+import { getEmployees } from '../../../lib/auth';
+import { getPerformance, savePerformance } from '../../../lib/storage';
+import type { PerformanceRecord, Role, User } from '../../../lib/types';
+import { formatDate } from '../../../lib/utils';
+import Card from '../../../components/Card';
+import StarRating from '../../../components/StarRating';
 export default function AdminPerformancePage() {
   const employees = getEmployees();
   const [records, setRecords] = useState<PerformanceRecord[]>([]);
-  const [selEmp, setSelEmp] = useState<User>(employees[0]);
+ const [selEmp, setSelEmp] = useState<User>(employees[0] ?? { username: '', name: '', role: 'employee' as Role, dept: '' });
   const [rating, setRating] = useState(3); const [feedback, setFeedback] = useState(''); const [success, setSuccess] = useState('');
   useEffect(() => { setRecords(getPerformance()); }, []);
   const submit = () => {
@@ -29,8 +29,8 @@ export default function AdminPerformancePage() {
           {employees.map(e => (<div key={e.username} className="border border-gray-100 rounded-xl p-4 text-center">
             <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center mx-auto mb-2">{e.name[0]}</div>
             <p className="font-semibold text-sm">{e.name}</p><p className="text-xs text-gray-400 mb-2">{e.dept}</p>
-            <StarRating value={Math.round(avgMap[e.username])} readonly />
-            <p className="text-xs text-gray-400 mt-1">{avgMap[e.username] ? avgMap[e.username].toFixed(1) : 'No reviews'}</p>
+            <StarRating value={Math.round(avgMap[e.username] ?? 0)} readonly />
+            <p className="text-xs text-gray-400 mt-1">{avgMap[e.username] != null ? avgMap[e.username]!.toFixed(1) : 'No reviews'}</p>
           </div>))}
         </div>
       </Card>
