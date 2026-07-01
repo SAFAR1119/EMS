@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getEmployees } from '../../lib/auth';
-import { getAttendance, getPerformance } from '../../lib/storage';
-import { AttendanceRecord, PerformanceRecord } from '../../lib/types';
-import { formatCurrency } from '../../lib/utils';
-import Card from '../../components/Card';
-import Badge, { statusVariant } from '../../components/Badge';
-import StarRating from '../../components/StarRating';
+import { getEmployees } from '../../../lib/auth';
+import { getAttendance, getPerformance } from '../../../lib/storage';
+import type { AttendanceRecord, PerformanceRecord } from '../../../lib/types';
+import { formatCurrency } from '../../../lib/utils';
+import Card from '../../../components/Card';
+import Badge, { statusVariant } from '../../../components/Badge';
+import StarRating from '../../../components/StarRating';
 export default function AdminEmployeesPage() {
   const employees = getEmployees();
   const [attMap, setAttMap] = useState<Record<string, AttendanceRecord>>({});

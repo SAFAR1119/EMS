@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getSession } from '../../../lib/auth';
 import { getAttendance, saveAttendance, getTasks, saveTasks } from '../../../lib/storage';
-import { AttendanceRecord, WorkTask } from '../../../lib/types';
+import type { AttendanceRecord, WorkTask } from '../../../lib/types';
 import { formatDate, todayISO } from '../../../lib/utils';
 import Card from '../../../components/Card';
 import Badge, { statusVariant } from '../../../components/Badge';

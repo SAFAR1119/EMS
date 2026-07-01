@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getLeaves, saveLeaves } from '../../lib/storage';
-import { LeaveRequest } from '../../lib/types';
-import { formatDate } from '../../lib/utils';
-import Card from '../../components/Card';
-import Badge, { statusVariant } from '../../components/Badge';
+import { getLeaves, saveLeaves } from '../../../lib/storage';
+import type { LeaveRequest } from '../../../lib/types';
+import { formatDate } from '../../../lib/utils';
+import Card from '../../../components/Card';
+import Badge, { statusVariant } from '../../../components/Badge';
 export default function AdminLeavePage() {
   const [leaves, setLeaves] = useState<LeaveRequest[]>([]);
   useEffect(() => { setLeaves(getLeaves()); }, []);

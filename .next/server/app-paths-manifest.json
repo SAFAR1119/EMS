@@ -1,5 +1,8 @@
 {
-  "/admin/dashboard/page": "app/admin/dashboard/page.js",
-  "/admin/payroll/page": "app/admin/payroll/page.js",
-  "/admin/performance/page": "app/admin/performance/page.js"
+  "/login/page": "app/login/page.js",
+  "/admin/performance/page": "app/admin/performance/page.js",
+  "/employee/payroll/page": "app/employee/payroll/page.js",
+  "/employee/leave/page": "app/employee/leave/page.js",
+  "/employee/performance/page": "app/employee/performance/page.js",
+  "/employee/dashboard/page": "app/employee/dashboard/page.js"
 }
